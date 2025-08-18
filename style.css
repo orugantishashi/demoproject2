@@ -57,6 +57,7 @@ li:hover{
     width:100%; 
     height:auto;
     max-height: 500px;
+    aspect-ratio: 16 / 9;
     padding: 40px;
     border-radius: 50px;
     object-fit: cover;
@@ -86,6 +87,7 @@ li:hover{
 .cards img {
     width: 100%;
     border-radius: 15px; 
+    aspect-ratio: 4 / 3;
     transition: transform 0.4s ease-in-out;
     display: block;
 }
