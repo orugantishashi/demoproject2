@@ -1,134 +1,211 @@
- * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
- }
-body {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #f8f8f8;
+* {
     margin: 0;
     padding: 0;
-    height: 100vh;
-}
-h1,
-h2,
-h3 {
-    font-family: 'Poppins', sans-serif;
-    color: #222222;
+    box-sizing: border-box;
 }
 
-nav{
+body {
+    font-family: 'Times New Roman', LTimes, serif;
+    background-color: #f8f8f8;
+    color: #222;
+}
+
+/* ---------- Navigation ---------- */
+nav {
     display: flex;
-    flex-direction: row;
-    padding: 10px 20px;
     justify-content: space-between;
-        /* separates h1 and ul */
     align-items: center;
-    border: 1px solid #ccc;
-    /* optional for layout debug */
+    padding: 10px 30px;
+    background-color: #fff;
     border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
 
+nav h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: #333;
 }
-ul{
+
+nav ul {
     list-style: none;
-    padding: 2px;
-    gap: 10px;
     display: flex;
-    flex-direction: row;
-    
+    gap: 20px;
 }
-li{
-    padding: 5px 10px;
-    margin: 0px;
+
+nav li {
     cursor: pointer;
+    padding: 5px 10px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
-li:hover{
+
+nav li:hover {
     background-color: #e0e0e0;
 }
-.banner{
-    height: 100vh;
+
+/* ---------- Banners ---------- */
+.banner {
     width: 100%;
-    background: linear-gradient(135deg, #eaeaea, #f5f5f5);
+    height: 60vh;
     overflow: hidden;
+    background: linear-gradient(135deg, #eaeaea, #f5f5f5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.banner img{
-    width:100%; 
-    height:auto;
-    max-height: 500px;
-    aspect-ratio: 16 / 9;
-    padding: 40px;
-    border-radius: 50px;
+
+.banner img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    border-radius: 0;
+}
+/* media querys*/
+@media (max-width: 600px) {
+    /* CSS rules here apply when viewport ≤ 600px */
+.banner {
+        height: 60vh;
+    }
+
+    .banner img {
+        width: 500px;
+            height: 600px;
+            object-fit: fill;
+            border-radius: 0;
+        /* show full image on small screens */
+    }
+    
 }
 
-.cards{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    border: 20px;
-    padding: 10px;
-
+.slipperbanner {
+    width: 100vw;
+    height: 60vh;
+    display: block;
+    margin: 10px;
+    background-color: #444;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: none;
 }
-.card {
-    border-radius: 15px;
-     overflow: hidden;
+
+
+/* ---------- Cards Section ---------- */
+#allCategorys {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.367);
-    /* Card stands out on gray background */
-     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    font-size: 1.8rem;
+    color: #222;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 30px;
+    margin: 0 20px 40px 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
+
 .card:hover {
     transform: translateY(-5px);
 }
 
-.cards img {
+.card img {
     width: 100%;
-    border-radius: 15px; 
-    aspect-ratio: 4 / 3;
-    transition: transform 0.4s ease-in-out;
-    display: block;
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
 }
-.cards img:hover {
-    transform: scale(1.02) ;
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 1.4rem;
 }
+
+/* ---------- Best Sellers ---------- */
+.title {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.8rem;
+    color: #222;
+}
+
 
 .shoes {
     display: flex;
-    flex-direction: row;
-    flex-wrap:nowrap;
-    gap: 20px;
+    gap: 10px;
     overflow-x: auto;
-    padding: 10px;
+    padding: 20px 30px;
+}
+.shoes::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+.shoes::-webkit-scrollbar-track {
+    background: transparent;
+}
 
+
+.shoes::-webkit-scrollbar {
+    height: 8px;
+    background: transparent;
+    
 }
 
 .product-card {
-    flex: 0 0 250px;
-    max-width: 300px;
-    background-color: rgba(255, 255, 255, 0.367);
+    flex: 0 0 300px;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
     text-align: center;
+    padding: 10px;
+    transition: transform 0.2s ease,box-shadow 0.3s ease;
+}
 
+.product-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .product-card img {
     width: 100%;
-        height: 280px;
-        /* fixed height (adjust as you like) */
-        object-fit: cover;
-        /* crops evenly */
-        border-radius: 10px;
-        display: block;
-
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
 }
-h3{
-    margin: 5px;
-    padding: 2px;
-    font-size: 1.5rem;
 
+.product-card p {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #444;
 }
+
+.price {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #e53935;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.buynow{
+    background-color: orange;
+    padding: 3px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
+
