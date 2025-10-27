@@ -12,14 +12,18 @@
   <!-- Navigation -->
   <nav>
     <h1>Foot Mart</h1>
-    <ul>
+    <ul id="nav-links">
       <li>Home</li>
       <li>Men</li>
       <li>Women</li>
       <li>Kids</li>
-      <li>Cart</li>
     </ul>
+    <div id="cart">
+      🛒 Cart (<span id="cart-count">0</span>)
+    </div>
+    <button class="toogle"> DarkMode</button>
   </nav>
+  
 
   <!-- Banner -->
   <section class="banner">
@@ -27,7 +31,7 @@
   </section>
 
   <!-- Category Cards -->
-  <h2 id="allCategorys">Categorys</h2>
+  <h2 class="title">Categorys</h2>
   <section class="cards">
     <div class="card">
       <img src="./images/banners/mens one.jpg" alt="Mens Category" />
@@ -35,7 +39,7 @@
     </div>
 
     <div class="card">
-      <img src="./images/banners/womens two.jpg" alt="Women Category" />
+      <img src="./images/banners/orginal/womens two.jpg" alt="Women Category" />
       <h3>Women</h3>
     </div>
 
@@ -97,11 +101,91 @@
     </div>
   </div>
   </div>
-
-  <div class="slippersbanners">
-    
-
+<!------Slippers Section----->
+  <div class="slipperbanners">
+    <img  src="./images/banners/orginal/slippers.jpg" alt="Slippers Banner"/>
   </div>
+  <div>
+    <h3 class="title">Best Slippers</h3>
+    <div class="shoes">
+      <div class="product-card">
+        <img src="./images/products/slippers/men img 1.webp" alt="slipper1">
+        <h3>Adidas</h3>
+        <p>Casual Wit Comfort And Reilable</p>
+        <span class="price">₹999</span>
+        <button class="buynow">Add Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="./images/products/slippers/men img 2.webp" alt="slipper2">
+        <h3>WoodLand</h3>
+        <p>ComfortStep Triple-Strap Sandals</p>
+        <span class="price">₹2,599</span>
+        <button class="buynow">Add Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="./images/products/slippers/men img 4.webp" alt="slipper4">
+        <h3>Bata</h3>
+        <p>Casuals</p>
+        <span class="price">₹1,299</span>
+        <button class="buynow">Add Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="./images/products/slippers/men img 5.webp" alt="slipper5">
+        <h3>Walkaroo</h3>
+        <p>Casual Wit Comfort</p>
+        <span class="price">₹999</span>
+        <button class="buynow">Add Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="./images/products/slippers/men img 6.webp" alt="slipper6">
+        <h3>Adidas</h3>
+        <p>Casual Wit Comfort And Reilable</p>
+        <span class="price">₹999</span>
+        <button class="buynow">Add Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="./images/products/slippers/men img 7.webp" alt="slipper7">
+        <h3>Walkaroo</h3>
+        <p> Reilable</p>
+        <span class="price">₹799</span>
+        <button class="buynow">Add Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="./images/products/slippers/men img 9.webp" alt="slipper9">
+        <h3>Adidas</h3>
+        <p>Casual Wit Comfort And Reilable</p>
+        <span class="price">₹1,399</span>
+        <button class="buynow">Add Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="./images/products/slippers/men img 10.webp" alt="slipper10">
+        <h3>Paragon</h3>
+        <p> Reilable</p>
+        <span class="price">₹699</span>
+        <button class="buynow">Add Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="./images/products/slippers/men img 11.webp" alt="slipper11">
+        <h3>Bata</h3>
+        <p>DayLite Comfort Sandals</p>
+        <span class="price">₹999</span>
+        <button class="buynow">Add Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footter-->
+   <footer>
+    <p>&copy;2024 Foot Mart.All Right Reseverd.</p>
+   </footer>
+
+  <script src="operation.js"></script>
 </body>
 
 </html>
