@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Men's Footwear - Foot Mart</title>
+    <meta name="description"
+        content="Shop the latest men's footwear collection at Foot Mart. Sneakers, formal shoes, sandals, and more.">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" style="text-decoration:none;">
+        <h1>Foot Mart</h1>
+        </a>
+        <ul id="nav-links">
+            <li onclick="window.location.href='index.html'">Home</li>
+            <li><a href="men.html" class="active">Men</a></li>
+            <li>Women</li>
+            <li>Kids</li>
+        </ul>
+        <form id="nav-search-form" class="nav-search" autocomplete="off">
+            <input type="search" id="nav-search-input" placeholder="Search Nike shoes" aria-label="Search Nike shoes">
+            <button type="submit">Search</button>
+        </form>
+        <div id="cart" class="cart" onclick="window.location.href='cart.html'">
+            🛒 Cart (<span id="cart-count">0</span>)
+        </div>
+        <button class="toggle">🌙 Dark Mode</button>
+        <button id="login-link" class="login" onclick="window.location.href='login.html'">Login / Register</button>
+
+        <div id="profile" class="hidden">
+            <button id="profile-btn" aria-haspopup="true" aria-expanded="false">👤</button>
+            <div id="profile-menu" class="profile-menu hidden">
+                <p id="profile-name"></p>
+                <button id="edit-details">Edit details</button>
+                <button id="logout">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <h3 id="section-title" class="title">Men's Collection</h3>
+    <div id="product-grid" class="cards">
+        <!-- Products will be loaded here by JS -->
+    </div>
+
+    <footer>
+        <p>&copy;2025 Foot Mart.All Right Reseverd.</p>
+    </footer>
+
+    <script src="operation.js"></script>
+    <script>
+        // Automatically load men's products when this page loads
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof loadCategoryProducts === 'function') {
+                loadCategoryProducts('mens');
+            }
+        });
+    </script>
+</body>
+
+</html>

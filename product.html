@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" style="text-decoration:none;">
+            <h1>Foot Mart</h1>
+        </a>
+
+        <ul id="nav-links">
+            <li>Home</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>Kids</li>
+        </ul>
+
+        <form id="nav-search-form" class="nav-search">
+            <input type="search" id="nav-search-input" placeholder="Search Nike shoes">
+            <button type="submit">Search</button>
+        </form>
+
+        <div id="cart" onclick="window.location.href='cart.html'">
+            🛒 Cart (<span id="cart-count">0</span>)
+        </div>
+
+        <button class="toggle">🌙 Dark Mode</button>
+    </nav>
+
+    <main class="product-wrap">
+        <div class="product-media">
+            <img id="product-img" src="">
+        </div>
+
+        <div class="product-info">
+            <h2 id="product-name"></h2>
+            <p id="product-desc"></p>
+
+            <ul id="product-meta" class="product-meta"></ul>
+
+            <div class="size-options">
+                <label>Select Size:</label>
+                <div class="sizes">
+                    <button class="size-btn">6</button>
+                    <button class="size-btn">7</button>
+                    <button class="size-btn">8</button>
+                    <button class="size-btn">9</button>
+                    <button class="size-btn">10</button>
+                </div>
+            </div>
+
+            <br>
+            <span id="product-price" class="price"></span>
+            <br>
+
+            <!-- Hidden product-card wrapper for cart functionality -->
+            <div id="product-card-wrapper" class="product-card" style="display: inline-block;">
+                <img style="display:none;">
+                <h3 style="display:none;"></h3>
+                <span class="price" style="display:none;"></span>
+                <button id="add-cart-btn" class="buynow">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="product.js"></script>
+    <script src="operation.js"></script>
+
+    <script>
+        // Update the hidden product-card wrapper when product data loads
+        // Using a different variable name to avoid conflict with product.js global 'productPromise'
+        const localProductPromise = resolveProduct(new URLSearchParams(window.location.search).get("id"));
+
+        localProductPromise.then((product) => {
+            if (!product) return;
+
+            const wrapper = document.getElementById("product-card-wrapper");
+            const productId = new URLSearchParams(location.search).get("id");
+
+            // Set data-id attribute
+            wrapper.setAttribute("data-id", productId);
+
+            // Update hidden elements directly from product data
+            const img = wrapper.querySelector("img");
+            const h3 = wrapper.querySelector("h3");
+            const price = wrapper.querySelector(".price");
+
+            img.src = product.img;
+            h3.textContent = product.name;
+            price.textContent = product.price;
+        });
+    </script>
+
+</body>
+
+</html>
