@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Login / Register</title>
@@ -8,27 +11,70 @@
 </head>
 
 <body>
-    <h2>User Login / Register</h2>
+    <div class="container">
+        <div class="form-box" id="login-box">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Login to your account</p>
 
-    <div class="form-container">
-        <h3>Register</h3>
-        <input type="text" id="rname" placeholder="Name">
-        <input type="email" id="remail" placeholder="Email">
-        <input type="password" id="rpassword" placeholder="Password">
-        <p id="register-error" class="error-message"></p>
-        <button onclick="register()">Register</button>
-    </div>
+            <div class="input-group">
+                <input type="email" id="lemail" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="lpassword" placeholder="Password" required>
+            </div>
 
-    <div class="form-container">
-        <h3>Login</h3>
-        <input type="email" id="lemail" placeholder="Email">
-        <input type="password" id="lpassword" placeholder="Password">
-        <p id="login-error" class="error-message"></p>
+            <div class="options">
+                <label class="remember-me">
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#" class="forgot-pass">Forgot Password?</a>
+            </div>
 
-        <button onclick="login()">Login</button>
+            <p id="login-error" class="error-message"></p>
+
+            <button onclick="login()" class="btn-primary">Login</button>
+
+            <p class="switch-text">
+                Don't have an account? <span onclick="showRegister()" class="link">Register here</span>
+            </p>
+        </div>
+
+        <div class="form-box hidden" id="register-box">
+            <h2>Create Account</h2>
+            <p class="subtitle">Join Foot Mart today</p>
+
+            <div class="input-group">
+                <input type="text" id="rname" placeholder="Full Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="remail" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="rpassword" placeholder="Password" required>
+            </div>
+
+            <p id="register-error" class="error-message"></p>
+
+            <button onclick="register()" class="btn-primary">Register</button>
+
+            <p class="switch-text">
+                Already have an account? <span onclick="showLogin()" class="link">Login here</span>
+            </p>
+        </div>
     </div>
 
     <script src="operation.js"></script>
+    <script>
+        function showRegister() {
+            document.getElementById('login-box').classList.add('hidden');
+            document.getElementById('register-box').classList.remove('hidden');
+        }
+
+        function showLogin() {
+            document.getElementById('register-box').classList.add('hidden');
+            document.getElementById('login-box').classList.remove('hidden');
+        }
+    </script>
 </body>
 
 </html>

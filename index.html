@@ -28,17 +28,26 @@
   <meta property="twitter:image" content="./images/banners/mens banner.jpg">
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="hamburger.css" />
 </head>
 
 <body>
   <nav>
     <h1>Foot Mart</h1>
-    <ul id="nav-links">
-      <li>Home</li>
-      <li><a href="/project2/html-css-project2/men.html">Men</a></li>
-      <li>Women</li>
-      <li>Kids</li>
-    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-content" id="nav-content">
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="men.html">Men</a></li>
+        <li><a href="women.html">Women</a></li>
+        <li><a href="kids.html">Kids</a></li>
+        <li class="mobile-only"><a href="#" id="mobile-dark-mode-toggle">Dark Mode</a></li>
+      </ul>
+    </div>
     <form id="nav-search-form" class="nav-search" autocomplete="off">
       <input type="search" id="nav-search-input" placeholder="Search Nike shoes" aria-label="Search Nike shoes">
       <button type="submit">Search</button>
@@ -56,8 +65,10 @@
       <div id="profile-menu" class="profile-menu hidden">
         <p id="profile-name"></p>
         <button id="edit-details">Edit details</button>
+        <button id="change-password">Change Password</button>
         <button id="logout">Logout</button>
       </div>
+    </div>
     </div>
 
   </nav>
@@ -73,20 +84,24 @@
   <h2 class="title">Categorys</h2>
   <section class="cards">
     <div class="card">
-      <a  style="text-decoration: none; color: inherit;" href="/project2/html-css-project2/men.html">
-      <img src="./images/banners/mens one.jpg" alt="Mens Category" />
-      <h3> Men </h3>
+      <a style="text-decoration: none; color: inherit;" href="men.html">
+        <img src="./images/banners/mens one.jpg" alt="Mens Category" />
+        <h3> Men </h3>
       </a>
     </div>
 
     <div class="card">
-      <img src="./images/banners/orginal/womens two.jpg" alt="Women Category" />
-      <h3>Women</h3>
+      <a style="text-decoration: none; color: inherit;" href="women.html">
+        <img src="./images/banners/orginal/womens two.jpg" alt="Women Category" />
+        <h3>Women</h3>
+      </a>
     </div>
 
     <div class="card">
-      <img src="./images/banners/kids.jpg" alt="Kids Category" />
-      <h3>Kids</h3>
+      <a style="text-decoration: none; color: inherit;" href="kids.html">
+        <img src="./images/banners/kids.jpg" alt="Kids Category" />
+        <h3>Kids</h3>
+      </a>
     </div>
   </section>
 
@@ -142,7 +157,7 @@
       <button class="buynow">Add Cart</button>
     </div>
   </div>
-  </div>
+
   <!------Slippers Section----->
   <div class="slipperbanners">
     <img src="./images/banners/orginal/slippers.jpg" alt="Slippers Banner" />
@@ -218,15 +233,59 @@
         <span class="price">₹999</span>
         <button class="buynow">Add Cart</button>
       </div>
-
     </div>
   </div>
 
-  <!-- Footter-->
-  <footer>
-    <p>&copy;2025 Foot Mart.All Right Reseverd.</p>
-  </footer>
+  <!-- Newsletter Section -->
+  <section class="newsletter">
+    <h2>Subscribe to our Newsletter</h2>
+    <p>Get the latest updates on new products and upcoming sales.</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
 
+  <!-- Professional Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Foot Mart</h3>
+        <p style="color: #bbb; line-height: 1.6;">Your one-stop destination for premium footwear. Quality, comfort,
+          and style in every step.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="men.html">Men's Collection</a></li>
+          <li><a href="women.html">Women's Collection</a></li>
+          <li><a href="kids.html">Kids' Collection</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Customer Care</h3>
+        <ul>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchange</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#">FB</a>
+          <a href="#">IG</a>
+          <a href="#">TW</a>
+          <a href="#">YT</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Foot Mart. All Rights Reserved. | Designed for Comfort.</p>
+    </div>
+  </footer>
 
   <script src="operation.js"></script>
   <script src="sneakerApi.js"></script>

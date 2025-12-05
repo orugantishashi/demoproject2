@@ -208,34 +208,33 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ------------------ NAV SEARCH (SHARED) ------------------
-document.addEventListener("DOMContentLoaded", () => {
-    const navSearchForm = document.getElementById("nav-search-form");
-    if (!navSearchForm) return;
-    const input = navSearchForm.querySelector("input");
+// Search functionality removed as per user request (Nike feed removal)
 
-    navSearchForm.addEventListener("submit", (evt) => {
-        evt.preventDefault();
-        const keyword = (input?.value || "").trim();
 
-        if (typeof window.updateSneakerFeed === "function") {
-            window.updateSneakerFeed(keyword, { force: true, scroll: true });
-        } else {
-            localStorage.setItem(NAV_SEARCH_KEY, keyword);
-            window.location.href = "index.html#nike-feed";
-        }
-    });
-});
-
+// ------------------ DARK MODE TOGGLE ------------------
 // ------------------ DARK MODE TOGGLE ------------------
 document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.querySelector(".toggle");
+    const mobileToggle = document.getElementById("mobile-dark-mode-toggle");
+
+    function updateToggleText() {
+        const isDark = document.body.classList.contains("dark-mode");
+        if (toggle) toggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+        if (mobileToggle) mobileToggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+    }
+
+    function toggleDarkMode(e) {
+        if (e) e.preventDefault();
+        document.body.classList.toggle("dark-mode");
+        updateToggleText();
+    }
+
     if (toggle) {
-        toggle.addEventListener("click", () => {
-            document.body.classList.toggle("dark-mode");
-            toggle.textContent = document.body.classList.contains("dark-mode")
-                ? "☀️ Light Mode"
-                : "🌙 Dark Mode";
-        });
+        toggle.addEventListener("click", toggleDarkMode);
+    }
+
+    if (mobileToggle) {
+        mobileToggle.addEventListener("click", toggleDarkMode);
     }
 });
 
@@ -513,10 +512,15 @@ async function loadCategoryProducts(category) {
     }
 
     try {
-        const response = await fetch('data.json');
-        if (!response.ok) throw new Error('Failed to load products');
+        let allProducts = [];
+        if (typeof window.productsData !== 'undefined') {
+            allProducts = window.productsData;
+        } else {
+            const response = await fetch('data.json');
+            if (!response.ok) throw new Error('Failed to load products');
+            allProducts = await response.json();
+        }
 
-        const allProducts = await response.json();
         const filteredProducts = allProducts.filter(p => p.category === category);
 
         productGrid.innerHTML = ''; // Clear loading message
@@ -553,3 +557,24 @@ async function loadCategoryProducts(category) {
         productGrid.innerHTML = '<p style="text-align:center; width:100%; color:red;">Error loading products. Please try again later.</p>';
     }
 }
+
+// ------------------ HAMBURGER MENU TOGGLE ------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburger");
+    const navContent = document.getElementById("nav-content");
+
+    if (hamburger && navContent) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navContent.classList.toggle("active");
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!hamburger.contains(e.target) && !navContent.contains(e.target)) {
+                hamburger.classList.remove("active");
+                navContent.classList.remove("active");
+            }
+        });
+    }
+});
